@@ -5,7 +5,7 @@ class SortSortedLists
   def initialize
     @list_one     = generate_sorted_array_of_random_numbers
     @list_two     = generate_sorted_array_of_random_numbers
-    @sorted_lists = sort_lists
+    @sorted_lists = merge_sorted_lists
 
     print_results
   end
@@ -19,7 +19,7 @@ class SortSortedLists
     my_array.sort
   end
 
-  def sort_lists
+  def merge_sorted_lists
     list_a      = @list_one.dup
     list_b      = @list_two.dup
     merged_list = []
