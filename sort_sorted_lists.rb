@@ -16,7 +16,29 @@ class SortSortedLists
       my_array << (rand 0..UPPER_BOUND_ON_RANDOM_LIST_ITEM_INTEGER)
     end
 
-    my_array.sort
+    sort_array( my_array )
+  end
+
+  def sort_array(unsorted_array)
+    sorted_array        = []
+    number_of_elements  = unsorted_array.length
+    while ( number_of_elements != sorted_array.length )
+      # Here we'll grab the first value in the array and compare it to all other elements of the array
+      # If there is a value that is lower, make that the new low element and continue searching array
+      # After comparing to all array values, slice off the low value via its index into our sorted array
+      # Repeat this until the sorted array has the same number of elements as the unsorted array
+      current_low_index = 0
+      current_low_value = unsorted_array[current_low_index]
+      unsorted_array.each_with_index do | candidate_value, index |
+        next if index == 0
+        if candidate_value < current_low_value
+          current_low_value = candidate_value
+          current_low_index = index
+        end
+      end
+      sorted_array << unsorted_array.slice!(current_low_index)
+    end
+    sorted_array
   end
 
   def merge_sorted_lists
