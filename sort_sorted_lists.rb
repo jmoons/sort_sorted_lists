@@ -20,9 +20,9 @@ class SortSortedLists
   end
 
   def sort_array(unsorted_array)
-    sorted_array        = []
-    number_of_elements  = unsorted_array.length
-    while ( number_of_elements != sorted_array.length )
+    sorted_array = []
+
+    while ( unsorted_array.any? )
       # Here we'll grab the first value in the array and compare it to all other elements of the array
       # If there is a value that is lower, make that the new low element and continue searching array
       # After comparing to all array values, slice off the low value via its index into our sorted array
@@ -70,10 +70,14 @@ class SortSortedLists
 
   def print_results
     puts "List A: #{@list_one.inspect}"
+    puts "Length: #{@list_one.length.inspect}"
     puts "==========================="
     puts "List B: #{@list_two.inspect}"
+    puts "Length: #{@list_two.length.inspect}"
     puts "==========================="
     puts "Sorted: #{@sorted_lists.inspect}"
+    puts "Length: #{@sorted_lists.length.inspect}"
+    puts "==========================="
   end
 
 end
